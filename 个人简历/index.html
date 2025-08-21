@@ -1,0 +1,1044 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>马润州 - 个人简历</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 25%, #16213e 50%, #0f3460 75%, #533483 100%);
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(120, 219, 255, 0.2) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            background: rgba(15, 15, 35, 0.9);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 0 30px rgba(120, 219, 255, 0.2);
+            text-align: center;
+            border: 1px solid rgba(120, 219, 255, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(120, 219, 255, 0.1), transparent);
+            animation: scan 3s ease-in-out infinite;
+        }
+
+        @keyframes scan {
+            0% { left: -100%; }
+            50% { left: 100%; }
+            100% { left: 100%; }
+        }
+
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            border: 5px solid #667eea;
+            object-fit: cover;
+        }
+
+        .name {
+            font-size: 2.5em;
+            color: #78c6ff;
+            margin-bottom: 10px;
+            font-weight: 700;
+            text-shadow: 0 0 20px rgba(120, 198, 255, 0.5);
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from { text-shadow: 0 0 20px rgba(120, 198, 255, 0.5); }
+            to { text-shadow: 0 0 30px rgba(120, 198, 255, 0.8), 0 0 40px rgba(120, 198, 255, 0.3); }
+        }
+
+        .title {
+            font-size: 1.3em;
+            color: #78c6ff;
+            margin-bottom: 20px;
+            font-weight: 600;
+            text-shadow: 0 0 15px rgba(120, 198, 255, 0.6);
+            animation: titleGlow 3s ease-in-out infinite alternate;
+            position: relative;
+            z-index: 1;
+        }
+
+        .title::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #78c6ff, #ff78c6, #c678ff, #78c6ff);
+            border-radius: 8px;
+            z-index: -1;
+            opacity: 0.3;
+            animation: titleBorder 4s linear infinite;
+            background-size: 400% 400%;
+        }
+
+        .title::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(120, 198, 255, 0.3), transparent);
+            animation: titleScan 2.5s ease-in-out infinite;
+        }
+
+        @keyframes titleScan {
+            0% { left: -100%; }
+            50% { left: 100%; }
+            100% { left: 100%; }
+        }
+
+        @keyframes titleGlow {
+            from { 
+                text-shadow: 0 0 15px rgba(120, 198, 255, 0.6);
+                transform: scale(1);
+            }
+            to { 
+                text-shadow: 0 0 25px rgba(120, 198, 255, 0.9), 0 0 35px rgba(120, 198, 255, 0.4);
+                transform: scale(1.02);
+            }
+        }
+
+        @keyframes titleBorder {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            position: relative;
+        }
+
+        .contact-info::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(120, 198, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 50%, rgba(255, 120, 198, 0.1) 0%, transparent 50%);
+            border-radius: 25px;
+            z-index: -1;
+            animation: contactBgPulse 4s ease-in-out infinite;
+        }
+
+        @keyframes contactBgPulse {
+            0%, 100% { 
+                opacity: 0.3;
+                transform: scale(1);
+            }
+            50% { 
+                opacity: 0.6;
+                transform: scale(1.02);
+            }
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: #b8c5d6;
+            transition: all 0.4s ease;
+            position: relative;
+            padding: 12px 16px;
+            border-radius: 15px;
+            background: rgba(120, 198, 255, 0.08);
+            border: 1px solid transparent;
+            min-width: 280px;
+        }
+
+        .contact-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(120, 198, 255, 0.1), rgba(255, 120, 198, 0.1));
+            border-radius: 15px;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .contact-item::after {
+            content: '';
+            position: absolute;
+            top: -1px;
+            left: -1px;
+            right: -1px;
+            bottom: -1px;
+            background: linear-gradient(45deg, #78c6ff, #ff78c6, #c678ff, #78c6ff);
+            border-radius: 16px;
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            background-size: 400% 400%;
+            animation: contactBorder 3s linear infinite;
+        }
+
+        .contact-item:hover {
+            color: #78c6ff;
+            transform: translateY(-3px) scale(1.05);
+            background: rgba(120, 198, 255, 0.15);
+            border-color: rgba(120, 198, 255, 0.4);
+            box-shadow: 0 10px 25px rgba(120, 198, 255, 0.3);
+        }
+
+        .contact-item:hover span:last-child {
+            color: #ffffff;
+            text-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
+            font-weight: 600;
+        }
+
+        .contact-item:hover::before {
+            opacity: 1;
+        }
+
+        .contact-item:hover::after {
+            opacity: 0.6;
+        }
+
+        .contact-item span:first-child {
+            font-weight: 600;
+            color: #78c6ff;
+            text-shadow: 0 0 8px rgba(120, 198, 255, 0.5);
+            animation: labelPulse 2s ease-in-out infinite;
+        }
+
+        .contact-item span:last-child {
+            font-weight: 500;
+            color: #ffffff;
+            text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+            font-size: 1.05em;
+            letter-spacing: 0.5px;
+        }
+
+        @keyframes contactBorder {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes labelPulse {
+            0%, 100% { 
+                transform: scale(1);
+                text-shadow: 0 0 8px rgba(120, 198, 255, 0.5);
+            }
+            50% { 
+                transform: scale(1.1);
+                text-shadow: 0 0 12px rgba(120, 198, 255, 0.8);
+            }
+        }
+
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .section {
+            background: rgba(15, 15, 35, 0.8);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 0 20px rgba(120, 219, 255, 0.1);
+            border: 1px solid rgba(120, 219, 255, 0.2);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4), 0 0 30px rgba(120, 219, 255, 0.2);
+            border-color: rgba(120, 219, 255, 0.4);
+        }
+
+        .section::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #78c6ff, transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .section:hover::after {
+            opacity: 1;
+        }
+
+        .section-title {
+            font-size: 1.5em;
+            color: #78c6ff;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #78c6ff;
+            font-weight: 600;
+            text-shadow: 0 0 10px rgba(120, 198, 255, 0.3);
+        }
+
+        .skill-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+        }
+
+        .skill-item {
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
+            color: #78c6ff;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(120, 198, 255, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(120, 198, 255, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .skill-item:hover {
+            transform: translateY(-5px) scale(1.05);
+            border-color: rgba(120, 198, 255, 0.6);
+            box-shadow: 0 10px 25px rgba(120, 198, 255, 0.2);
+        }
+
+        .skill-item:hover::before {
+            left: 100%;
+        }
+
+        .project-item {
+            margin-bottom: 25px;
+            padding: 20px;
+            background: rgba(26, 26, 46, 0.6);
+            border-radius: 15px;
+            border-left: 4px solid #78c6ff;
+            border: 1px solid rgba(120, 198, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .project-item:hover {
+            background: rgba(26, 26, 46, 0.8);
+            border-color: rgba(120, 198, 255, 0.4);
+            transform: translateX(5px);
+        }
+
+        .project-title {
+            font-size: 1.2em;
+            color: #78c6ff;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .project-desc {
+            color: #b8c5d6;
+            margin-bottom: 10px;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tech-tag {
+            background: rgba(120, 198, 255, 0.1);
+            color: #78c6ff;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            border: 1px solid rgba(120, 198, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .tech-tag:hover {
+            background: rgba(120, 198, 255, 0.2);
+            transform: scale(1.05);
+        }
+
+        .award-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+            padding: 15px;
+            background: rgba(26, 26, 46, 0.6);
+            border-radius: 10px;
+            border: 1px solid rgba(120, 198, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .award-item:hover {
+            background: rgba(26, 26, 46, 0.8);
+            border-color: rgba(120, 198, 255, 0.4);
+            transform: translateX(5px);
+        }
+
+        .award-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #78c6ff;
+            font-size: 1.2em;
+            border: 2px solid rgba(120, 198, 255, 0.4);
+            box-shadow: 0 0 15px rgba(120, 198, 255, 0.3);
+        }
+
+        .award-content h4 {
+            color: #78c6ff;
+            margin-bottom: 5px;
+        }
+
+        .award-content p {
+            color: #b8c5d6;
+            font-size: 0.9em;
+        }
+
+        .education-item {
+            margin-bottom: 20px;
+        }
+
+        .education-title {
+            font-weight: 600;
+            color: #78c6ff;
+            margin-bottom: 5px;
+        }
+
+        .education-details {
+            color: #b8c5d6;
+            font-size: 0.9em;
+        }
+
+        .full-width {
+            grid-column: 1 / -1;
+        }
+
+        @media (max-width: 768px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .header {
+                padding: 20px;
+            }
+            
+            .section {
+                padding: 20px;
+            }
+        }
+
+        .github-link {
+            display: inline-block;
+            background: #333;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            margin-top: 20px;
+            transition: background 0.3s ease;
+        }
+
+        .github-link:hover {
+            background: #555;
+        }
+
+        /* 添加科技感粒子背景 */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .particle {
+            position: absolute;
+            background: radial-gradient(circle, #78c6ff 0%, rgba(120, 198, 255, 0.4) 60%, transparent 100%);
+            border-radius: 50%;
+            animation: float 12s ease-in-out infinite;
+            will-change: transform, opacity;
+            filter: blur(0.2px);
+        }
+
+        .particle::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100%;
+            height: 100%;
+            background: inherit;
+            border-radius: inherit;
+            transform: translate(-50%, -50%) scale(0.3);
+            opacity: 0.6;
+        }
+
+        .particle::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100%;
+            height: 100%;
+            background: inherit;
+            border-radius: inherit;
+            transform: translate(-50%, -50%) scale(0.1);
+            opacity: 0.4;
+        }
+
+        @keyframes float {
+            0% { 
+                transform: translateY(0px) translateX(0px) rotate(0deg); 
+                opacity: 0.4; 
+            }
+            25% { 
+                transform: translateY(-8px) translateX(6px) rotate(45deg); 
+                opacity: 0.8; 
+            }
+            50% { 
+                transform: translateY(-12px) translateX(-3px) rotate(90deg); 
+                opacity: 1; 
+            }
+            75% { 
+                transform: translateY(-6px) translateX(-8px) rotate(135deg); 
+                opacity: 0.7; 
+            }
+            100% { 
+                transform: translateY(0px) translateX(0px) rotate(180deg); 
+                opacity: 0.4; 
+            }
+        }
+
+        /* 添加不同类型的粒子 */
+        .particle.small {
+            width: 2px;
+            height: 2px;
+            animation-duration: 10s;
+            animation-delay: 0s;
+        }
+
+        .particle.medium {
+            width: 3px;
+            height: 3px;
+            animation-duration: 12s;
+            animation-delay: 3s;
+        }
+
+        .particle.large {
+            width: 4px;
+            height: 4px;
+            animation-duration: 15s;
+            animation-delay: 6s;
+        }
+
+        .particle.glow {
+            box-shadow: 0 0 8px rgba(120, 198, 255, 0.6);
+            animation-duration: 18s;
+            animation-delay: 2s;
+        }
+
+        /* 添加连接线效果 */
+        .particle-connection {
+            position: absolute;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(120, 198, 255, 0.3), transparent);
+            pointer-events: none;
+            z-index: -1;
+            animation: connectionFade 3s ease-in-out infinite;
+        }
+
+        @keyframes connectionFade {
+            0%, 100% { opacity: 0; }
+            50% { opacity: 1; }
+        }
+
+        /* 添加脉冲效果 */
+        .particle.pulse {
+            animation: pulse 6s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { 
+                transform: scale(1) translateY(0px); 
+                opacity: 0.5; 
+            }
+            50% { 
+                transform: scale(1.3) translateY(-5px); 
+                opacity: 0.9; 
+            }
+        }
+
+        /* 添加科技感边框动画 */
+        .tech-border {
+            position: relative;
+        }
+
+        .tech-border::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #78c6ff, #ff78c6, #c678ff, #78c6ff);
+            border-radius: 22px;
+            z-index: -1;
+            animation: borderRotate 3s linear infinite;
+            background-size: 400% 400%;
+        }
+
+        @keyframes borderRotate {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+    </style>
+</head>
+<body>
+    <!-- 粒子背景 -->
+    <div class="particles" id="particles"></div>
+    
+    <div class="container">
+        <!-- 头部信息 -->
+        <div class="header tech-border">
+            <img src="images/profile.jpg" alt="马润州" class="profile-img">
+            <h1 class="name">马润州</h1>
+            <p class="title">计算机科学与技术专业</p>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <span>邮箱</span>
+                    <span>20233005261@hainanu.edu.cn</span>
+                </div>
+                <div class="contact-item">
+                    <span>电话号码</span>
+                    <span>19889034939</span>
+                </div>
+                <div class="contact-item">
+                    <span>地址</span>
+                    <span>海南省海口市</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <!-- 技能专长 -->
+            <div class="section">
+                <h2 class="section-title">💻 技能专长</h2>
+                <div class="skill-grid">
+                    <div class="skill-item">软件测试</div>
+                    <div class="skill-item">自动化测试</div>
+                    <div class="skill-item">Python</div>
+                    <div class="skill-item">Java</div>
+                    <div class="skill-item">C/C++</div>
+                    <div class="skill-item">SQL</div>
+                    <div class="skill-item">Linux</div>
+                </div>
+            </div>
+
+            <!-- 教育背景 -->
+            <div class="section">
+                <h2 class="section-title">🎓 教育背景</h2>
+                <div class="education-item">
+                    <div class="education-title">海南大学</div>
+                    <div class="education-details">计算机科学与技术专业 | 本科在读</div>
+                    <div class="education-details">2023年7月 - 至今</div>
+                </div>
+                <div class="education-item">
+                    <div class="education-title">主修课程</div>
+                    <div class="education-details">离散数学、数据结构、计算机网络、算法设计、软件工程、数据库原理、操作系统、计算机组成原理</div>
+                </div>
+                <div class="education-item">
+                    <div class="education-title">学习成绩</div>
+                    <div class="education-details">绩点：3.63  | 英语四级：552 | 英语六级：490</div>
+                </div>
+                <div class="education-item">
+                    <div class="education-title">奖学金</div>
+                    <div class="education-details">2023-2024学年海南大学计算机科学与技术学院一等综合奖学金</div>
+                </div>
+            </div>
+
+            <!-- 项目经验 -->
+            <div class="section full-width">
+                <h2 class="section-title">🚀 项目经验</h2>
+                <div class="project-item">
+                    <div class="project-title">Web应用测试项目</div>
+                    <div class="project-desc">参与全国大学生软件测试大赛，针对基于Maven构建的Java项目，运用JUnit结合Selenium编写自动化测试脚本并进行相应要求的截图，获得国家级三等奖。</div>
+                    <div class="project-tech">
+                        <span class="tech-tag">Selenium</span>
+                        <span class="tech-tag">JUnit</span>
+                        <span class="tech-tag">Maven</span>
+                        <span class="tech-tag">Java</span>
+                        <span class="tech-tag">测试用例设计</span>
+                    </div>
+                </div>
+                
+                <div class="project-item">
+                    <div class="project-title">"椰律通"线上法律咨询平台</div>
+                    <div class="project-desc">以主要负责人身份开发设计微信小程序并在微信平台上线，主要设计理念是搭建一个法律咨询平台为海南农民提供免费的法律咨询。</div>
+                    <div class="project-tech">
+                        <span class="tech-tag">微信小程序</span>
+                        <span class="tech-tag">前端开发</span>
+                        <span class="tech-tag">法律咨询</span>
+                        <span class="tech-tag">平台搭建</span>
+                    </div>
+                </div>
+
+
+            <!-- 获奖情况 -->
+            <div class="section">
+                <h2 class="section-title">🏆 获奖情况</h2>
+                <div class="award-item">
+                    <div class="award-icon">🥉</div>
+                    <div class="award-content">
+                        <h4>全国大学生软件测试大赛</h4>
+                        <p>Web应用测试赛道 | 国家级三等奖</p>
+                    </div>
+                </div>
+                <div class="award-item">
+                    <div class="award-icon">🏅</div>
+                    <div class="award-content">
+                        <h4>全国大学生数学竞赛</h4>
+                        <p>省级三等奖</p>
+                    </div>
+                </div>
+                <div class="award-item">
+                    <div class="award-icon">🥉</div>
+                    <div class="award-content">
+                        <h4>中国高校计算机大赛-移动应用创新赛</h4>
+                        <p>海峡两岸创新作品赛海南省赛三等奖</p>
+                    </div>
+                </div>
+                <div class="award-item">
+                    <div class="award-icon">🥉</div>
+                    <div class="award-content">
+                        <h4>中国机器人及人工智能大赛</h4>
+                        <p>人工智能创新赛道 | 海南赛区三等奖</p>
+                    </div>
+                </div>
+                <div class="award-item">
+                    <div class="award-icon">🌟</div>
+                    <div class="award-content">
+                        <h4>中国青年志愿服务项目大赛</h4>
+                        <p>国家级铜奖</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 实习经历 -->
+            <div class="section">
+                <h2 class="section-title">💼 校园经历</h2>
+                <div class="project-item">
+                    <div class="project-title">共青团海南大学委员会组织部干事</div>
+                    <div class="project-desc">2023.10-2024.10，负责发展团员、共青团推优入党工作，负责团籍管理、团费收缴、团员证办理工作，组织参与过入团仪式等多次重大会议。</div>
+                    <div class="project-tech">
+                        <span class="tech-tag">组织管理</span>
+                        <span class="tech-tag">团队协作</span>
+                        <span class="tech-tag">活动策划</span>
+                    </div>
+                </div>
+                <div class="project-item">
+                    <div class="project-title">朴诚书院篮球新生杯团体第二名</div>
+                    <div class="project-desc">2023.11，在朴诚书院篮球新生杯比赛中获得团体第二名，展现了良好的团队协作精神和体育竞技能力。</div>
+                    <div class="project-tech">
+                        <span class="tech-tag">团队协作</span>
+                        <span class="tech-tag">体育竞技</span>
+                        <span class="tech-tag">领导力</span>
+                    </div>
+                </div>
+                <div class="project-item">
+                    <div class="project-title">暑期"三下乡"社会实践活动积极分子</div>
+                    <div class="project-desc">2024.7-2024.10，参与海南大学2024年大学生暑期文化科技卫生"三下乡"社会实践活动，获得学生积极分子称号。</div>
+                    <div class="project-tech">
+                        <span class="tech-tag">社会实践</span>
+                        <span class="tech-tag">志愿服务</span>
+                        <span class="tech-tag">社会责任感</span>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <!-- 个人特点 -->
+            <div class="section full-width">
+                <h2 class="section-title">🌟 个人特点</h2>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+                    <div style="background: rgba(26, 26, 46, 0.6); padding: 20px; border-radius: 15px; border: 1px solid rgba(120, 198, 255, 0.2); transition: all 0.3s ease;">
+                        <h4 style="color: #78c6ff; margin-bottom: 10px;">🔍 技术能力</h4>
+                        <p style="color: #b8c5d6;">具备扎实的计算机基础知识和软件测试专业技能，能够独立完成复杂的测试任务，有Python、C/C++、Java、Web的编程经验。</p>
+                    </div>
+                    <div style="background: rgba(26, 26, 46, 0.6); padding: 20px; border-radius: 15px; border: 1px solid rgba(120, 198, 255, 0.2); transition: all 0.3s ease;">
+                        <h4 style="color: #78c6ff; margin-bottom: 10px;">🤝 团队协作</h4>
+                        <p style="color: #b8c5d6;">具有良好的沟通能力和团队协作精神，能够快速融入团队并承担重要职责，会积极与小组内其他成员沟通来共同解决问题。</p>
+                    </div>
+                    <div style="background: rgba(26, 26, 46, 0.6); padding: 20px; border-radius: 15px; border: 1px solid rgba(120, 198, 255, 0.2); transition: all 0.3s ease;">
+                        <h4 style="color: #78c6ff; margin-bottom: 10px;">📚 学习能力</h4>
+                        <p style="color: #b8c6ff;">学习能力与抗压能力较强，能够胜任程序的设计与各项技术方面问题的解决，具备强烈的学习欲望和快速学习能力。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+    <script>
+        // 创建粒子效果
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = 45; // 减少粒子数量，让效果更轻盈
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                
+                // 随机选择粒子类型
+                const types = ['small', 'medium', 'large', 'glow', 'pulse'];
+                const randomType = types[Math.floor(Math.random() * types.length)];
+                particle.className = `particle ${randomType}`;
+                
+                // 随机位置，避免边缘
+                particle.style.left = (Math.random() * 85 + 7.5) + '%';
+                particle.style.top = (Math.random() * 85 + 7.5) + '%';
+                
+                // 随机动画延迟
+                particle.style.animationDelay = Math.random() * 12 + 's';
+                
+                // 随机颜色变化
+                particle.style.filter = `hue-rotate(${Math.random() * 15 - 7.5}deg)`;
+                
+                // 随机透明度，增强对比度
+                particle.style.opacity = 0.4 + Math.random() * 0.5;
+                
+                particlesContainer.appendChild(particle);
+            }
+        }
+
+        // 页面加载完成后创建粒子
+        document.addEventListener('DOMContentLoaded', () => {
+            createParticles();
+            createConnections();
+        });
+
+        // 创建连接线效果
+        function createConnections() {
+            const particlesContainer = document.getElementById('particles');
+            const particles = particlesContainer.querySelectorAll('.particle');
+            
+            // 为部分粒子创建连接线
+            particles.forEach((particle, index) => {
+                if (index % 3 === 0 && index < particles.length - 1) {
+                    const nextParticle = particles[index + 1];
+                    const connection = document.createElement('div');
+                    connection.className = 'particle-connection';
+                    
+                    // 计算连接线位置和长度
+                    const rect1 = particle.getBoundingClientRect();
+                    const rect2 = nextParticle.getBoundingClientRect();
+                    
+                    const x1 = rect1.left + rect1.width / 2;
+                    const y1 = rect1.top + rect1.height / 2;
+                    const x2 = rect2.left + rect2.width / 2;
+                    const y2 = rect2.top + rect2.height / 2;
+                    
+                    const length = Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
+                    const angle = Math.atan2(y2 - y1, x2 - x1) * 180 / Math.PI;
+                    
+                    connection.style.width = length + 'px';
+                    connection.style.left = x1 + 'px';
+                    connection.style.top = y1 + 'px';
+                    connection.style.transform = `rotate(${angle}deg)`;
+                    connection.style.transformOrigin = '0 0';
+                    
+                    particlesContainer.appendChild(connection);
+                }
+            });
+        }
+
+        // 添加鼠标移动效果
+        let mouseParticleCount = 0;
+        const maxMouseParticles = 20; // 增加最大粒子数量，确保连续性
+        
+        // 使用节流函数来优化性能
+        let isThrottled = false;
+        const throttleDelay = 16; // 约60fps
+        
+        document.addEventListener('mousemove', (e) => {
+            if (isThrottled) return;
+            isThrottled = true;
+            
+            setTimeout(() => {
+                isThrottled = false;
+            }, throttleDelay);
+            
+            // 清理过期的粒子
+            cleanupExpiredParticles();
+            
+            // 创建跟随粒子
+            createMouseParticle(e.clientX, e.clientY);
+        });
+        
+        // 创建鼠标跟随粒子
+        function createMouseParticle(x, y) {
+            if (mouseParticleCount >= maxMouseParticles) return;
+            
+            const cursor = document.createElement('div');
+            cursor.className = 'particle glow';
+            
+            // 减少随机偏移，让粒子更紧密跟随
+            const offsetX = (Math.random() - 0.5) * 6;
+            const offsetY = (Math.random() - 0.5) * 6;
+            
+            cursor.style.left = (x + offsetX) + 'px';
+            cursor.style.top = (y + offsetY) + 'px';
+            cursor.style.animation = 'none';
+            cursor.style.opacity = '0.9';
+            cursor.style.position = 'fixed';
+            cursor.style.pointerEvents = 'none';
+            cursor.style.zIndex = '1000';
+            cursor.style.width = '5px';
+            cursor.style.height = '5px';
+            cursor.style.transition = 'all 0.6s ease-out';
+            
+            // 添加创建时间戳
+            cursor.dataset.createdAt = Date.now();
+            
+            document.body.appendChild(cursor);
+            mouseParticleCount++;
+            
+            // 延迟淡出效果
+            setTimeout(() => {
+                if (cursor.parentNode) {
+                    cursor.style.opacity = '0';
+                    cursor.style.transform = 'scale(0.3) translateY(-8px)';
+                }
+            }, 100);
+            
+            // 自动移除粒子
+            setTimeout(() => {
+                if (cursor.parentNode) {
+                    cursor.remove();
+                    mouseParticleCount--;
+                }
+            }, 600);
+        }
+        
+        // 清理过期粒子
+        function cleanupExpiredParticles() {
+            const particles = document.querySelectorAll('.particle.glow');
+            const now = Date.now();
+            
+            particles.forEach(particle => {
+                const createdAt = parseInt(particle.dataset.createdAt);
+                if (now - createdAt > 1000) { // 超过1秒的粒子强制清理
+                    particle.remove();
+                    mouseParticleCount = Math.max(0, mouseParticleCount - 1);
+                }
+            });
+        }
+
+        // 添加滚动优化
+        let ticking = false;
+        document.addEventListener('scroll', () => {
+            if (!ticking) {
+                requestAnimationFrame(() => {
+                    // 可以在这里添加滚动时的粒子效果
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        });
+        
+        // 定期清理粒子，防止内存泄漏
+        setInterval(cleanupExpiredParticles, 2000);
+        
+        // 页面失去焦点时清理所有鼠标粒子
+        document.addEventListener('visibilitychange', () => {
+            if (document.hidden) {
+                const particles = document.querySelectorAll('.particle.glow');
+                particles.forEach(particle => particle.remove());
+                mouseParticleCount = 0;
+            }
+        });
+    </script>
+</body>
+</html>
